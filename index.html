@@ -1,0 +1,86 @@
+<style>
+    *,
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        max-width: 50%;
+        margin: 10 auto;
+        position: relative;
+    }
+    
+    video {
+        display: block;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .video-component {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10;
+    }
+
+    .btn {
+        width: 80px;
+        margin: 0 1;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        color: white;
+        font-weight: 800;
+        cursor: pointer;
+    }
+
+    .btn-play {
+        background-color: rgb(65, 167, 158);
+    }
+
+    .btn-pause {
+        background-color: crimson;
+    }
+
+    .btn-minimize {
+        background-color: #333;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=\, initial-scale=1.0" />
+        <title>Custom Video Player</title>
+    </head>
+    <body>
+        <div class="container">
+            <video width="720">
+                <source src="assets/footage.mp4" type="video/mp4" />
+            </video>
+            <div class="video-component">
+                <button onclick="btnPlay()" class="btn btn-play">PLAY</button>
+                <button onclick="btnPause()" class="btn btn-pause">PAUSE</button>
+                <button onclick="btnMinimize()" class="btn btn-minimize">MINIMIZE</button>
+            </div>
+        </div>
+
+        <script>
+            const video = document.querySelector("video")
+            function btnPlay() {
+                video.play()
+            }
+
+            function btnPause() {
+                video.pause()
+            }
+
+            function btnMinimize() {
+                video.requestPictureInPicture()
+            }
+        </script>
+    </body>
+</html>
